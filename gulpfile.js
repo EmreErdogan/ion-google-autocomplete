@@ -23,5 +23,13 @@ gulp.task('compile', ['clean'], function () {
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('lint', function() {
+    return gulp
+    	.src('src/**/*.js')
+    	.pipe(jshint())
+    	.pipe(jshint.reporter(stylish));
+});
+
+
 gulp.task('build', ['compile']);
 gulp.task('default', ['build']);
