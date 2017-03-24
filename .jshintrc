@@ -1,0 +1,31 @@
+{
+  "node": true,
+  "browser": true,
+  "devel": true,
+  // "esversion": 5,
+  "bitwise": true,
+  "curly": true,
+  "eqeqeq": false, // true
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "undef": true, // true
+  "unused": false, // true
+  "strict": false, // true
+  "globals": {
+    "angular": true,
+    "cordova": true,
+    "StatusBar": true,
+    "Camera": true,
+    "CameraPopoverOptions": true,
+    "window": true,
+    "ionic": true,
+    "facebookConnectPlugin": true,
+    "google": true,
+    "$": true,
+    "Framework7": true,
+    "Hammer": true,
+    "device": true,
+    "PushNotification": true
+  }
+}
