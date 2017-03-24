@@ -67,8 +67,9 @@ angular.module('ion-google-autocomplete', [])
                     $scope.location = location;
                     $scope.close();
 
-                    if ($scope.onSelection !== undefined)
+                    if ($scope.onSelection !== undefined){
                         $scope.onSelection({ location: location });
+                    }
                 });
             };
 

@@ -18,14 +18,14 @@ angular.module('ion-google-autocomplete')
         input: input,
         componentRestrictions: countryCode ? { country: countryCode } : undefined
       }, function(result, status) {
-
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
-
+          
+        if (status == google.maps.places.PlacesServiceStatus.OK) {  
           console.log(status);
           dfd.resolve(result);
-        }
-        else
+        } else{
           dfd.reject(status);
+        }
+
       });
 
       return dfd.promise;
@@ -35,14 +35,14 @@ angular.module('ion-google-autocomplete')
      * @param required placeId
      */
     getDetails: function(placeId) {
-
+        
       var dfd = $q.defer();
-
+      
       detailsService.getDetails({ placeId: placeId }, function(result) {
-
+          
         dfd.resolve(result);
       });
-
+      
       return dfd.promise;
     }
   };
