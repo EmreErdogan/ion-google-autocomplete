@@ -37,7 +37,8 @@ angular.module('ion-google-autocomplete', [])
 
             $scope.modal = $ionicModal.fromTemplate(template, {
                 scope: $scope,
-                animation: 'slide-in-up'
+                animation: 'slide-in-up',
+                backdropClickToClose: false
             });
 
             var searchInputElement = angular.element($scope.modal.$el.find('input'));
