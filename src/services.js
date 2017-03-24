@@ -19,13 +19,14 @@ angular.module('ion-google-autocomplete')
         componentRestrictions: countryCode ? { country: countryCode } : undefined
       }, function(result, status) {
           
-        if (status == google.maps.places.PlacesServiceStatus.OK) {  
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            
           console.log(status);
           dfd.resolve(result);
-        } else{
+        } else {
           dfd.reject(status);
         }
-
+        
       });
 
       return dfd.promise;
