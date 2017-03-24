@@ -1,5 +1,5 @@
 angular.module('ion-google-autocomplete', [])
-.directive('googleAutocompleteSuggestion', function($document, $ionicModal, $ionicTemplateLoader, googleAutocompleteService) {
+.directive('googleAutocompleteSuggestion', ["$document", "$ionicModal", "$ionicTemplateLoader", "googleAutocompleteService", function($document, $ionicModal, $ionicTemplateLoader, googleAutocompleteService) {
     return {
         restrict: 'A',
         scope: {
@@ -68,9 +68,8 @@ angular.module('ion-google-autocomplete', [])
                     $scope.close();
 
                     if ($scope.onSelection !== undefined){
-                      $scope.onSelection({ location: location });
+                        $scope.onSelection({ location: location });
                     }
-
                 });
             };
 
@@ -89,11 +88,11 @@ angular.module('ion-google-autocomplete', [])
                 }
             });
         }
-    }; //return
-});
+    };
+}]);
 
 angular.module('ion-google-autocomplete')
-.factory('googleAutocompleteService', function ($q) {
+.factory('googleAutocompleteService', ["$q", function ($q) {
 
   var autocompleteService = new google.maps.places.AutocompleteService();
   var detailsService = new google.maps.places.PlacesService(document.createElement("input"));
@@ -112,14 +111,14 @@ angular.module('ion-google-autocomplete')
         input: input,
         componentRestrictions: countryCode ? { country: countryCode } : undefined
       }, function(result, status) {
-
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
-
-          console.log(status);
+          
+        if (status == google.maps.places.PlacesServiceStatus.OK) {  
+          void 0;
           dfd.resolve(result);
-        }
-        else
+        } else{
           dfd.reject(status);
+        }
+
       });
 
       return dfd.promise;
@@ -129,15 +128,15 @@ angular.module('ion-google-autocomplete')
      * @param required placeId
      */
     getDetails: function(placeId) {
-
+        
       var dfd = $q.defer();
-
+      
       detailsService.getDetails({ placeId: placeId }, function(result) {
-
+          
         dfd.resolve(result);
       });
-
+      
       return dfd.promise;
     }
-  }; //return
-});
+  };
+}]);
