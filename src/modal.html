@@ -4,7 +4,7 @@
             <i class="icon ion-search placeholder-icon"></i>
             <input type="search" ng-model="search.query" placeholder="Search">
         </label>
-        <button class="ion-autocomplete-cancel button button-clear ng-binding" ng-click="close()" translate>Done</button>
+        <button class="ion-autocomplete-cancel button button-positive ng-binding" ng-click="close()" translate>Done</button>
     </ion-header-bar>
     <ion-content>
         <ion-list>
@@ -15,8 +15,5 @@
             {{suggestion.description}}
             </ion-item>
         </ion-list>
-        <div class="padding">
-        <img src="https://developers.google.com/maps/documentation/places/images/powered-by-google-on-white.png" style="margin-left: 5px" alt="" />
-        </div>
     </ion-content>
 </ion-modal-view>
